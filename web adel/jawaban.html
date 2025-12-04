@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Adelia Widi Awanti 💌</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+    body {
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        background: pink;
+        text-align: center;
+        padding: 50px;
+        overflow-x: hidden;
+    }
+
+    /* Efek surat */
+    .love-letter {
+        position: relative;
+        width: 85%;
+        max-width: 520px;
+        margin: 50px auto;
+    }
+
+    .letter-paper {
+        background: #fffdf7;
+        padding: 30px;
+        border-radius: 12px;
+        border: 2px dashed #ff69b4;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+        animation: fadeIn 1s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    .letter-paper h1 {
+        color: #d63384;
+        margin-top: 0;
+    }
+
+    /* Amplop di bawah */
+    .envelope {
+        width: 100%;
+        height: 75px;
+        background: #ff9bbb;
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        z-index: 1;
+    }
+
+    .envelope::before,
+    .envelope::after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        background: #ff85a2;
+        top: -50px;
+    }
+
+    .envelope::before {
+        left: 0;
+        border-radius: 12px 0 0 0;
+        transform: skewY(10deg);
+    }
+
+    .envelope::after {
+        right: 0;
+        border-radius: 0 12px 0 0;
+        transform: skewY(-10deg);
+    }
+
+    /* Input Jawaban */
+    textarea {
+        width: 90%;
+        max-width: 400px;
+        height: 140px;
+        padding: 15px;
+        border-radius: 12px;
+        border: 2px solid #ff69b4;
+        font-family: inherit;
+        font-size: 16px;
+        resize: none;
+        outline: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    #submitBtn {
+        margin-top: 20px;
+        background: #ff69b4;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 12px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    #submitBtn:hover {
+        background: #ff4d92;
+    }
+
+    /* Hati beterbangan */
+    .heart {
+        position: fixed;
+        top: -10px;
+        color: red;
+        font-size: 24px;
+        animation: float 4s linear infinite;
+        opacity: 0.8;
+    }
+    @keyframes float {
+        0% { transform: translateY(0) rotate(0deg); }
+        100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="love-letter">
+    <div class="letter-paper">
+        <h1>💌 Tulis Jawaban Kakak 💌</h1>
+        <p>Aku udah nunggu jawaban hati dari Kakak nih… 😳💗</p>
+
+        <textarea id="replyText" placeholder="Tulis jawaban kamu di sini yaa~"></textarea>
+
+        <br>
+        <button id="submitBtn">Kirim Jawaban 💞</button>
+    </div>
+
+    <div class="envelope"></div>
+</div>
+
+<script>
+    document.getElementById("submitBtn").addEventListener("click", async () => {
+        const text = document.getElementById("replyText").value.trim();
+
+        if (text === "") {
+            alert("Isi dulu jawabannya yaa 💗");
+            return;
+        }
+
+        // Kirim ke Formspree
+        const response = await fetch("https://formspree.io/f/xjknokvg", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ jawaban: text })
+        });
+
+        if (response.ok) {
+            alert("Jawaban kamu sudah terkirim! 💞\nMakasih yaa sayang 😳💗");
+            document.getElementById("replyText").value = ""; // reset
+        } else {
+            alert("Gagal mengirim 😢 Coba lagi yaa…");
+        }
+    });
+</script>
+
+
+<script>
+    // Efek Hati beterbangan
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.fontSize = (20 + Math.random() * 20) + "px";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 400);
+
+    // Notifikasi jawaban dikirim
+    document.getElementById("submitBtn").addEventListener("click", () => {
+        alert("Jawaban kamu berhasil dikirim ❤️\nMakasih ya kamu manis banget 😳💖");
+    });
+</script>
+
+</body>
+</html>
