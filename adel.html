@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Tulus Untukmu</title>
+    <style>
+        :root {
+            --pink-soft: #ffeff2;
+            --pink-medium: #f8bbd0;
+            --pink-dark: #ad1457;
+            --white-glass: rgba(255, 255, 255, 0.85);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Ornamen Hiasan */
+        .deco {
+            position: fixed;
+            font-size: 25px;
+            pointer-events: none;
+            z-index: 10;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Container Surat */
+        .letter-box {
+            width: 90%;
+            max-width: 650px;
+            background: var(--white-glass);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border: 1px solid #fff;
+            margin: 40px 0;
+            position: relative;
+            z-index: 5;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--pink-dark);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            text-align: left;
+            white-space: pre-line; /* Menjaga spasi antar paragraf */
+            color: #444;
+        }
+
+        .highlight {
+            color: var(--pink-dark);
+            font-weight: bold;
+        }
+
+        /* Tombol Interaktif Pertama */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--pink-soft);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            transition: 0.8s;
+        }
+
+        .start-btn {
+            background: var(--pink-dark);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(173, 20, 87, 0.3);
+        }
+
+        /* Boneka & Hati */
+        .teddy { position: absolute; bottom: -20px; right: -20px; font-size: 60px; }
+        .teddy-left { position: absolute; top: -20px; left: -20px; font-size: 60px; }
+
+        /* Responsif HP */
+        @media (max-width: 600px) {
+            .letter-box { padding: 25px; width: 85%; }
+            h1 { font-size: 1.4rem; }
+            .content { font-size: 0.95rem; }
+            .teddy, .teddy-left { font-size: 40px; }
+        }
+    </style>
+</head>
+<body onclick="playAudio()">
+
+    <div class="overlay" id="overlay">
+        <p style="margin-bottom: 20px; color: #ad1457;">Ada pesan untuk Kakak...</p>
+        <button class="start-btn" onclick="startLetter()">Buka Surat ❤️</button>
+    </div>
+
+    <audio id="bgAudio" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="deco" style="top:10%; left:5%;">💖</div>
+    <div class="deco" style="top:20%; right:10%;">💗</div>
+    <div class="deco" style="bottom:15%; left:10%;">✨</div>
+
+    <div class="letter-box">
+        <div class="teddy-left">🧸</div>
+        <h1>Sebuah Pesan Dari Hati</h1>
+        
+        <div class="content">
+            Mau yang kakak maksud apa? kalo mau untuk serius, jujur aku beneran mau kak. setelah aku pikir" dan aku rasain selama ini, dari awal kita ketemu sampe sekarang aku beneran <span class="highlight">stuck sama kakak</span>. kakak spesial banget menurut aku dan aku bener" pengen milikin kakak sepenuhnya.
+
+            Karna sejujurnya yaa, aku tuh belum siap menikah bukan karna aku masih pengen bebas atau apa gitu. tapi aku merasa kalo belum jadi apa". jujur aku sedih banget sih kalo harus kehilangan cewe idaman aku, aku ga bohong atau ngomong kata" buaya tapi serius <span class="highlight">kakak tuh idaman aku bangetttt</span>.
+
+            Aku mungkin egois sih kalo misalkan minta untuk temenin dari 0, karna sekarang usia kakak juga udah usia siap untuk menikah terus kakak juga dapat tekanan dari mamah biar cepet nikah, bahkan kakak juga putus sama mantan kakak karna hal ini.
+
+            Tapi di luar itu kakak udah ngubah cara pandang dunia aku, emang sih awalnya aku ga terlalu kepikiran gitu buat nikah tapi setelah kenal sama kakak aku jadi punya motivasi lebih buat punya keluarga kecil. aku juga jadi kepikiran, kayanya kalo sekarang posisi aku udah sukses, aku gabakal nunggu waktu lagi deh buat nikah, apalagi sama kamu.
+
+            Aku mau ngucapin terimakasih banyak sama kakak, karna kakak udah pernah hadir di hidup aku, mengubah cara pandang aku, ngasih aku motivasi, dan banyak memberi warna baru buat aku. Sekarang aku bakal lebih ambis buat sukses, aku bakal fokus buat upgrade diri aku. Pokoknya fokus deh untuk sukses, <span class="highlight">karna kan harusnya memang berkembang baik dulu baru berkembang biak.</span>
+
+            Nanti tepati janji kakak yaa buat dateng ke wisuda akuuu, mungkin di wisuda nanti kakak bakal liat aku yang berbeda, kakak bakal liat aku yang lebih dewasa. Kalo kita memang ditakdirkan berjodoh, disaat aku udah sukses aku bakal balik lagi ke kakak. 
+
+            Walaupun kakak ga sama aku, aku pengen liat kakak bahagia terus dan semoga bisa dapet pasangan seumur hidup yg baik dan sesuai dengan yg kakak harapkan. 
+            
+            Makasih udah baca yappingan bocil bawel. ❤️
+        </div>
+        <div class="teddy">🧸</div>
+    </div>
+
+    <script>
+        function startLetter() {
+            // Menghilangkan overlay
+            document.getElementById('overlay').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('overlay').style.display = 'none';
+            }, 800);
+            
+            // Memutar audio
+            const audio = document.getElementById('bgAudio');
+            audio.play();
+        }
+
+        // Fungsi cadangan jika user klik di area lain
+        function playAudio() {
+            const audio = document.getElementById('bgAudio');
+            if (audio.paused) {
+                audio.play();
+            }
+        }
+    </script>
+</body>
+</html>
